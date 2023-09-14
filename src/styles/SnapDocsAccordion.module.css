@@ -1,0 +1,359 @@
+.container {
+  background-color: #f3f6fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 1100px;
+  height: 60vh;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cardTaller {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 1100px;
+  height: 80vh;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card,
+.cardTaller {
+  position: absolute;
+  top: 10vh;
+  padding: 10px 50px;
+  transition: height 0.5s ease-in-out;
+}
+
+.card h1 {
+  font-family: "Gilroy-bold", sans-serif;
+  font-size: 34px;
+  color: black;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.card p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  line-height: 32px;
+  text-decoration: none;
+}
+
+.cardTaller h1 {
+  font-family: "Gilroy-bold", sans-serif;
+  font-size: 34px;
+  color: black;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.card h3 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  text-align: center;
+  line-height: 32px;
+  text-decoration: none;
+}
+
+.cardTaller h3 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  text-align: center;
+  line-height: 32px;
+  text-decoration: none;
+}
+
+.ctaContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.learnMoreText {
+  font-family: "Gilroy-bold", sans-serif;
+  font-size: 17px;
+  color: black;
+  margin-right: 10px;
+}
+
+.arrowCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #f26b2c;
+  color: white;
+}
+
+.cardTaller p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  line-height: 32px;
+  text-decoration: none;
+}
+
+.accordionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.tabs {
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.bottomLine {
+  margin-top: 19px;
+  height: 1px;
+  background-color: black;
+  width: 100%;
+}
+
+.titleContainer h1 {
+  font-family: "Gilroy-bold", sans-serif;
+  font-size: 34px;
+  color: black;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.tab h1 {
+  font-family: "Gilroy-bold", sans-serif;
+  font-size: 24px;
+  color: black;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.chevron {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  position: relative;
+  color: #3a86ff;
+}
+
+.tab:hover .chevron::before,
+.tab:hover .chevron::after {
+  background-color: #f26b2c;
+}
+
+.chevron::before,
+.chevron::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 2px;
+  background-color: currentColor;
+}
+
+.chevron::before {
+  left: 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.chevron::after {
+  right: 0;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.chevron.up::before {
+  left: 0;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.chevron.up::after {
+  right: 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.content {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.contentVisible {
+  max-height: 300px;
+}
+
+.ctaButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  background-color: #005fa3;
+}
+
+.tabsContents,
+.tabsContentsShorter {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: height 0.3s ease-in-out;
+}
+
+.tabsContents {
+  height: 500px;
+}
+
+.tabsContentsShorter {
+  height: 10px;
+}
+
+.imageColumn {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.imageColumn img {
+  position: absolute;
+  object-fit: contain;
+  max-height: 440px;
+  transform: translateY(-5%);
+  transition: transform 0.5s ease-in-out;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.imageColumn img.active {
+  transform: translateY(-1%);
+  visibility: visible;
+  z-index: 2;
+}
+
+.imageColumn img.active.quickTransition {
+  transition: transform 0.1s ease-in-out, visibility 0.1s;
+}
+
+.imageColumn img.prev {
+  animation: fadeOutAndSlide 0.2s forwards;
+  visibility: visible;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.imageColumn img.activeFromTop {
+  animation: slideFromTop 0.5s forwards;
+  visibility: visible;
+  z-index: 2;
+}
+
+.imageColumn img.activeFromBottom {
+  animation: slideFromBottom 0.5s forwards;
+  visibility: visible;
+  z-index: 2;
+}
+
+.imageColumn img.prevFromTop {
+  animation: fadeOutAndSlideFromTop 0.2s forwards;
+  visibility: visible;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.imageColumn img.prevFromBottom {
+  animation: fadeOutAndSlideFromBottom 0.2s forwards;
+  visibility: visible;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(-1%);
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(-1%);
+  }
+}
+
+@keyframes fadeOutAndSlide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutAndSlideFromTop {
+  from {
+    transform: translateY(-5%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutAndSlideFromBottom {
+  from {
+    transform: translateY(-5%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+}
