@@ -77,7 +77,7 @@
 
 .ctaContainer {
   display: flex;
-  align-items: center;
+  align-items: center; /* Vertically center the text and the arrow */
   cursor: pointer;
 }
 
@@ -85,18 +85,18 @@
   font-family: "Gilroy-bold", sans-serif;
   font-size: 17px;
   color: black;
-  margin-right: 10px;
+  margin-right: 10px; /* Space between the text and the circle */
 }
 
 .arrowCircle {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #f26b2c;
-  color: white;
+  align-items: center; /* Centering the arrow inside the circle */
+  justify-content: center; /* Centering the arrow inside the circle */
+  width: 20px; /* Diameter of the circle, adjust as needed */
+  height: 20px; /* Diameter of the circle, adjust as needed */
+  border-radius: 50%; /* Makes it a circle */
+  background-color: #f26b2c; /* Color of the circle */
+  color: white; /* Color of the arrow */
 }
 
 .cardTaller p {
@@ -205,13 +205,14 @@
 
 .content {
   width: 100%;
+
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
 }
 
 .contentVisible {
-  max-height: 300px;
+  max-height: 300px; /* Or whatever max height the content can be */
 }
 
 .ctaButton {
@@ -227,7 +228,6 @@
 .ctaButton:hover {
   background-color: #005fa3;
 }
-
 .tabsContents,
 .tabsContentsShorter {
   flex: 1;
@@ -249,18 +249,19 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
-  overflow: hidden;
+  background-color: #ffffff; /* White background to give the illusion of the wall */
+  overflow: hidden; /* To make sure no part of the image shows outside its bounds */
 }
 
 .imageColumn img {
   position: absolute;
   object-fit: contain;
+
   max-height: 440px;
   transform: translateY(-5%);
   transition: transform 0.5s ease-in-out;
   visibility: hidden;
-  z-index: 1;
+  z-index: 1; /* Default z-index */
 }
 
 .imageColumn img.active {
@@ -293,67 +294,55 @@
   z-index: 2;
 }
 
-.imageColumn img.prevFromTop {
-  animation: fadeOutAndSlideFromTop 0.2s forwards;
-  visibility: visible;
-  z-index: 2;
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.imageColumn img.prevFromBottom {
-  animation: fadeOutAndSlideFromBottom 0.2s forwards;
-  visibility: visible;
-  z-index: 2;
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-}
-
 @keyframes slideFromTop {
-  from {
-    transform: translateY(-10%);
+  0% {
+    transform: translateY(-100%);
   }
-  to {
-    transform: translateY(-1%);
+  100% {
+    transform: translateY(0%);
   }
 }
 
 @keyframes slideFromBottom {
-  from {
-    transform: translateY(10%);
+  0% {
+    transform: translateY(100%);
   }
-  to {
-    transform: translateY(-1%);
+  100% {
+    transform: translateY(0%);
   }
 }
 
 @keyframes fadeOutAndSlide {
-  from {
+  0% {
+    transform: translateY(0%);
     opacity: 1;
   }
-  to {
+  100% {
+    transform: translateY(-100%);
     opacity: 0;
   }
 }
 
-@keyframes fadeOutAndSlideFromTop {
-  from {
-    transform: translateY(-5%);
-    opacity: 1;
+@keyframes slideOut {
+  0% {
+    transform: translateY(0%);
   }
-  to {
-    transform: translateY(-10%);
-    opacity: 0;
+  100% {
+    transform: translateY(-100%);
   }
 }
 
-@keyframes fadeOutAndSlideFromBottom {
-  from {
-    transform: translateY(-5%);
-    opacity: 1;
+@keyframes slideFromTopSpecial {
+  0% {
+    transform: translateY(-100%);
   }
-  to {
-    transform: translateY(10%);
-    opacity: 0;
+  100% {
+    transform: translateY(0%);
   }
+}
+
+.imageColumn img.activeFromTopSpecial {
+  animation: slideFromTopSpecial 0.4s forwards;
+  visibility: visible;
+  z-index: 2;
 }
