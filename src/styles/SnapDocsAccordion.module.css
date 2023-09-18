@@ -31,6 +31,7 @@
   top: 10vh;
   padding: 10px 50px;
   transition: height 0.5s ease-in-out;
+  overflow: hidden;
 }
 
 .card h1 {
@@ -77,7 +78,7 @@
 
 .ctaContainer {
   display: flex;
-  align-items: center; /* Vertically center the text and the arrow */
+  align-items: center;
   cursor: pointer;
 }
 
@@ -85,18 +86,18 @@
   font-family: "Gilroy-bold", sans-serif;
   font-size: 17px;
   color: black;
-  margin-right: 10px; /* Space between the text and the circle */
+  margin-right: 10px;
 }
 
 .arrowCircle {
   display: flex;
-  align-items: center; /* Centering the arrow inside the circle */
-  justify-content: center; /* Centering the arrow inside the circle */
-  width: 20px; /* Diameter of the circle, adjust as needed */
-  height: 20px; /* Diameter of the circle, adjust as needed */
-  border-radius: 50%; /* Makes it a circle */
-  background-color: #f26b2c; /* Color of the circle */
-  color: white; /* Color of the arrow */
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #f26b2c;
+  color: white;
 }
 
 .cardTaller p {
@@ -204,15 +205,15 @@
 }
 
 .content {
-  width: 100%;
-
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
+  opacity: 0;
+  transition: max-height 0.2s ease-in-out;
 }
 
 .contentVisible {
-  max-height: 300px; /* Or whatever max height the content can be */
+  max-height: 400px;
+  opacity: 1;
 }
 
 .ctaButton {
@@ -238,111 +239,45 @@
 }
 
 .tabsContents {
-  height: 500px;
+  height: 611px;
 }
 
-.tabsContentsShorter {
-  height: 10px;
-}
-
-.imageColumn {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff; /* White background to give the illusion of the wall */
-  overflow: hidden; /* To make sure no part of the image shows outside its bounds */
-}
-
-.imageColumn img {
+.image {
   position: absolute;
-  object-fit: contain;
-
-  max-height: 440px;
-  transform: translateY(-5%);
-  transition: transform 0.5s ease-in-out;
-  visibility: hidden;
-  z-index: 1; /* Default z-index */
+  top: 100%;
+  left: 0%;
+  transform: translateY(-50%);
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  transition: top 0.5s ease-in-out;
 }
 
-.imageColumn img.active {
-  transform: translateY(-1%);
-  visibility: visible;
-  z-index: 2;
+.imageMoved {
+  top: 40%;
 }
 
-.imageColumn img.active.quickTransition {
-  transition: transform 0.1s ease-in-out, visibility 0.1s;
+.image,
+.blank {
+  z-index: 10;
 }
 
-.imageColumn img.prev {
-  animation: fadeOutAndSlide 0.2s forwards;
-  visibility: visible;
-  z-index: 2;
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
+.imageTop,
+.blankTop {
+  z-index: 20;
 }
 
-.imageColumn img.activeFromTop {
-  animation: slideFromTop 0.5s forwards;
-  visibility: visible;
-  z-index: 2;
+.blank {
+  height: 500px;
+  width: 600px;
+  margin-top: 23%;
+  margin-left: 0px;
+  background-color: white;
+  position: absolute;
+  transition: height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
 }
 
-.imageColumn img.activeFromBottom {
-  animation: slideFromBottom 0.5s forwards;
-  visibility: visible;
-  z-index: 2;
-}
-
-@keyframes slideFromTop {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
-
-@keyframes slideFromBottom {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
-
-@keyframes fadeOutAndSlide {
-  0% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-}
-
-@keyframes slideOut {
-  0% {
-    transform: translateY(0%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes slideFromTopSpecial {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
-
-.imageColumn img.activeFromTopSpecial {
-  animation: slideFromTopSpecial 0.4s forwards;
-  visibility: visible;
-  z-index: 2;
+.blankMoved {
+  height: 300px;
+  margin-top: 85%;
 }

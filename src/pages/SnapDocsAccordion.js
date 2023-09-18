@@ -8,21 +8,27 @@ import tabFourImage from "../images/snapdocs/Notary-signing-Agents.webp";
 
 const SnapDocs = () => {
   const [activeTab, setActiveTab] = useState(null);
-  const [prevActiveTab, setPrevActiveTab] = useState(1);
-  const [specialTransition, setSpecialTransition] = useState(false);
+  const [lastActiveTab, setLastActiveTab] = useState(null);
 
-  useEffect(() => {
-    if (prevActiveTab === 3 && activeTab === 2) {
-      setSpecialTransition(true);
+  const handleTabClick = (tabNumber) => {
+    if (activeTab === tabNumber) {
+      setLastActiveTab(activeTab);
+      setActiveTab(null);
     } else {
-      setSpecialTransition(false);
+      setLastActiveTab(activeTab);
+      setActiveTab(tabNumber);
     }
-    setPrevActiveTab(activeTab);
-  }, [activeTab]);
+  };
 
   return (
     <div className={styles.container}>
-      <div className={activeTab !== null ? styles.cardTaller : styles.card}>
+      <div
+        className={
+          activeTab !== null
+            ? `${styles.cardTaller} ${activeTab === 1 ? styles.active : ""}`
+            : styles.card
+        }
+      >
         <div className={styles.headerTitles}>
           <h1>Connecting the industry through digital closing solutions</h1>
           <h3>
@@ -32,10 +38,7 @@ const SnapDocs = () => {
         </div>
         <div className={styles.accordionContainer}>
           <div className={styles.tabs}>
-            <div
-              className={styles.tab}
-              onClick={() => setActiveTab(activeTab === 1 ? null : 1)}
-            >
+            <div className={styles.tab} onClick={() => handleTabClick(1)}>
               <div className={styles.titleContainer}>
                 <h1>Lender</h1>
                 <span
@@ -65,10 +68,7 @@ const SnapDocs = () => {
               </div>
               <div className={styles.bottomLine}></div>
             </div>
-            <div
-              className={styles.tab}
-              onClick={() => setActiveTab(activeTab === 2 ? null : 2)}
-            >
+            <div className={styles.tab} onClick={() => handleTabClick(2)}>
               <div className={styles.titleContainer}>
                 <h1>Title & Escrow</h1>
                 <span
@@ -98,10 +98,7 @@ const SnapDocs = () => {
               </div>
               <div className={styles.bottomLine}></div>
             </div>
-            <div
-              className={styles.tab}
-              onClick={() => setActiveTab(activeTab === 3 ? null : 3)}
-            >
+            <div className={styles.tab} onClick={() => handleTabClick(3)}>
               <div className={styles.titleContainer}>
                 <h1>Signing Service</h1>
                 <span
@@ -131,10 +128,7 @@ const SnapDocs = () => {
               <div className={styles.bottomLine}></div>
             </div>
 
-            <div
-              className={styles.tab}
-              onClick={() => setActiveTab(activeTab === 4 ? null : 4)}
-            >
+            <div className={styles.tab} onClick={() => handleTabClick(4)}>
               <div className={styles.titleContainer}>
                 <h1>Notary Signing Agents</h1>
                 <span
@@ -166,69 +160,101 @@ const SnapDocs = () => {
             </div>
           </div>
 
-          <div
-            className={
-              activeTab === null
-                ? styles.tabsContentsShorter
-                : styles.tabsContents
-            }
-          >
-            <div className={styles.imageColumn}>
-              <Image
-                src={tabOneImage}
-                alt="tab one"
-                className={
-                  activeTab === 1
-                    ? prevActiveTab === 2
-                      ? styles.activeFromBottom
-                      : styles.activeFromTop
-                    : prevActiveTab === 1
-                    ? styles.prev
+          <div className={styles.tabsContents}>
+            <div>
+              <div
+                className={`${styles.image} ${
+                  activeTab === 1 ? styles.imageMoved : ""
+                }`}
+                style={{
+                  zIndex: activeTab === 1 ? 27 : lastActiveTab === 1 ? 21 : 17,
+                }}
+              >
+                <Image src={tabOneImage} width={500} height={500} />
+              </div>
+              <div
+                className={`${styles.blank} ${
+                  activeTab === 1 || lastActiveTab !== 1
+                    ? styles.blankMoved
                     : ""
-                }
-              />
+                }`}
+                style={{
+                  zIndex: activeTab === 1 ? 27 : lastActiveTab === 1 ? 21 : 17,
+                }}
+              ></div>
+            </div>
 
-              <Image
-                src={tabTwoImage}
-                alt="tab two"
-                className={
-                  activeTab === 2
-                    ? specialTransition
-                      ? ` ${styles.activeFromTopSpecial} ${styles.quickTransition}`
-                      : styles.activeFromBottom
-                    : prevActiveTab === 2
-                    ? styles.prev
+            <div>
+              <div
+                className={`${styles.image} ${
+                  activeTab === 2 ? styles.imageMoved : ""
+                }`}
+                style={{
+                  zIndex: activeTab === 2 ? 28 : lastActiveTab === 2 ? 22 : 18,
+                }}
+              >
+                <Image src={tabTwoImage} width={500} height={500} />
+              </div>
+              <div
+                className={`${styles.blank} ${
+                  activeTab === 2 || lastActiveTab !== 2
+                    ? styles.blankMoved
                     : ""
-                }
-              />
+                }`}
+                style={{
+                  zIndex: activeTab === 2 ? 28 : lastActiveTab === 2 ? 22 : 18,
+                }}
+              ></div>
 
-              <Image
-                src={tabThreeImage}
-                alt="tab three"
-                className={
-                  activeTab === 3
-                    ? prevActiveTab === 1
-                      ? styles.activeFromTop
-                      : styles.activeFromBottom
-                    : prevActiveTab === 3
-                    ? styles.prev
-                    : ""
-                }
-              />
+              <div>
+                <div
+                  className={`${styles.image} ${
+                    activeTab === 3 ? styles.imageMoved : ""
+                  }`}
+                  style={{
+                    zIndex:
+                      activeTab === 3 ? 29 : lastActiveTab === 3 ? 23 : 19,
+                  }}
+                >
+                  <Image src={tabThreeImage} width={500} height={500} />
+                </div>
+                <div
+                  className={`${styles.blank} ${
+                    activeTab === 3 || lastActiveTab !== 3
+                      ? styles.blankMoved
+                      : ""
+                  }`}
+                  style={{
+                    zIndex:
+                      activeTab === 3 ? 29 : lastActiveTab === 3 ? 23 : 19,
+                  }}
+                ></div>
+              </div>
 
-              <Image
-                src={tabFourImage}
-                alt="tab four"
-                className={
-                  activeTab === 4
-                    ? prevActiveTab === 3
-                      ? styles.activeFromBottom
-                      : styles.activeFromTop
-                    : prevActiveTab === 4
-                    ? styles.prev
-                    : ""
-                }
-              />
+              <div>
+                <div
+                  className={`${styles.image} ${
+                    activeTab === 4 ? styles.imageMoved : ""
+                  }`}
+                  style={{
+                    zIndex:
+                      activeTab === 4 ? 30 : lastActiveTab === 4 ? 24 : 10,
+                  }}
+                >
+                  <Image src={tabFourImage} width={500} height={500} />
+                </div>
+                <div
+                  className={`${styles.blank} ${
+                    activeTab === 4 || lastActiveTab !== 4
+                      ? styles.blankMoved
+                      : ""
+                  }`}
+                  style={{
+                    zIndex:
+                      activeTab === 4 ? 30 : lastActiveTab === 4 ? 24 : 10,
+                  }}
+                ></div>
+              </div>
             </div>
           </div>
         </div>

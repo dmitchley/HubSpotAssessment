@@ -32,7 +32,7 @@ export default function TimelineCarousel() {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 9000,
+    autoplaySpeed: 3000,
     initialSlide: 0,
 
     asNavFor: yearSlider.current,
