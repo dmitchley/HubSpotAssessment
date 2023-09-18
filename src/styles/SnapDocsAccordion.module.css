@@ -281,3 +281,49 @@
   height: 300px;
   margin-top: 85%;
 }
+
+@media (max-width: 1200px) {
+  .card,
+  .cardTaller {
+    width: 95%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card,
+  .cardTaller {
+    width: 100%;
+    padding: 10px;
+    height: auto;
+    position: relative;
+    top: 0;
+  }
+
+  .card h1,
+  .cardTaller h1 {
+    font-size: 28px;
+  }
+
+  .card p,
+  .cardTaller p,
+  .card h3,
+  .cardTaller h3 {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .accordionContainer {
+    flex-direction: column;
+  }
+
+  .tabs {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .tabsContents,
+  .tabsContentsShorter {
+    display: none; /* hiding the images on mobile for a cleaner look */
+  }
+}

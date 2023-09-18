@@ -23,6 +23,7 @@ export default function TimelineCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const mainSlider = useRef(null);
   const yearSlider = useRef(null);
+  const isMobile = window.innerWidth <= 480;
 
   const mainSettings = {
     dots: false,
@@ -31,6 +32,7 @@ export default function TimelineCarousel() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    slidesToShow: isMobile ? 1 : 3,
     autoplay: true,
     autoplaySpeed: 3000,
     initialSlide: 0,
@@ -43,6 +45,7 @@ export default function TimelineCarousel() {
     dots: false,
     arrows: false,
     infinite: true,
+    slidesToShow: isMobile ? 3 : 6,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,

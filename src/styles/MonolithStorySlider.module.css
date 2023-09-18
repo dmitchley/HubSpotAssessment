@@ -182,3 +182,71 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 768px) {
+  .carouselContainer h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .carouselItem {
+    max-width: 200px;
+  }
+
+  .carouselIcon {
+    font-size: 2.5rem;
+  }
+
+  .carouselSubtitle {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .carouselTitle {
+    font-size: 1.25rem;
+  }
+
+  .carouselYearItem {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .carouselContainer h1 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .carouselItem {
+    max-width: 150px;
+  }
+
+  .carouselIcon {
+    font-size: 2rem;
+  }
+
+  .carouselSubtitle {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .carouselTitle {
+    font-size: 1rem;
+  }
+
+  .carouselYearItem {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .ContainerBottomSliderController {
+    flex-direction: column;
+  }
+
+  .controlCircles {
+    margin: 20px 0 0;
+    justify-content: center;
+  }
+}
