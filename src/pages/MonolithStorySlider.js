@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -23,7 +23,20 @@ export default function TimelineCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const mainSlider = useRef(null);
   const yearSlider = useRef(null);
-  const isMobile = window.innerWidth <= 480;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 480);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const mainSettings = {
     dots: false,
